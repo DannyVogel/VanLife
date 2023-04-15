@@ -47,10 +47,6 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<VanDetail />} 
       loader={vanDetailLoader}
     />
-    {/**
-     * Challenge:
-     * Include the `await requireAuth()` everywhere it's needed!
-     */}
 
     <Route path="host" element={<HostLayout />}>
       <Route
