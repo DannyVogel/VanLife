@@ -1,43 +1,43 @@
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
-import imageUrl from "/assets/images/avatar-icon.png"
+import { useNavigate } from "react-router-dom"
 
-export default function Header() {
-    const activeStyles = {
-        fontWeight: "bold",
-        textDecoration: "underline",
-        color: "#161616"
+export default function Login() {
+    const [loginFormData, setLoginFormData] = React.useState({ email: "", password: "" })
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log(loginFormData)
     }
-    
+
+    function handleChange(e) {
+        const { name, value } = e.target
+        setLoginFormData(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
+
     return (
-        <header>
-            <Link className="site-logo" to="/">#VanLife</Link>
-            <nav>
-                <NavLink 
-                    to="host"
-                    style={({isActive}) => isActive ? activeStyles : null}
-                >
-                    Host
-                </NavLink>
-                <NavLink 
-                    to="about"
-                    style={({isActive}) => isActive ? activeStyles : null}
-                >
-                    About
-                </NavLink>
-                <NavLink 
-                    to="vans"
-                    style={({isActive}) => isActive ? activeStyles : null}
-                >
-                    Vans
-                </NavLink>
-                <Link to="login" className="login-link">
-                    <img 
-                        src={imageUrl}
-                        className="login-icon"
-                    />
-                </Link>
-            </nav>
-        </header>
+        <div className="login-container">
+            <h1>Sign in to your account</h1>
+            <form onSubmit={handleSubmit} className="login-form">
+                <input
+                    name="email"
+                    onChange={handleChange}
+                    type="email"
+                    placeholder="Email address"
+                    value={loginFormData.email}
+                />
+                <input
+                    name="password"
+                    onChange={handleChange}
+                    type="password"
+                    placeholder="Password"
+                    value={loginFormData.password}
+                />
+                <button>Log in</button>
+            </form>
+        </div>
     )
+
 }
