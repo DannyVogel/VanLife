@@ -1,12 +1,6 @@
 import React from "react"
 import { useLoaderData } from "react-router-dom"
 
-/**
- * Challenge: Pass a message from the requireAuth function
- * that says "You must log in first." and display that message
- * in an <h2> BELOW the <h1>. Give it a classname of "red" for
- * some quick styling - (I added the CSS already).
- */
 export function loader({ request }) {
     return new URL(request.url).searchParams.get("message")
 }
