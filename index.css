@@ -9,6 +9,11 @@ html, body {
     font-family: "Inter", sans-serif;
 }
 
+a {
+    text-decoration: unset;
+    color: unset;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -51,6 +56,20 @@ header a:hover {
     text-decoration: underline;
 }
 
+header .login-icon {
+    height: 18px;
+    width: 18px;
+}
+
+header .login-link {
+    display: inline-flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+}
+
 main {
     margin-bottom: 84px;
 }
@@ -84,7 +103,6 @@ footer {
     display: block;
     color: black;
     text-decoration: none;
-    margin-top: 60px;
     margin-left: 26px;
 }
 
@@ -184,6 +202,15 @@ footer {
     padding-inline: 23px
 }
 
+.van-list-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.van-list-filter-buttons > a {
+    margin-right: 15px;
+}
+
 .van-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -261,7 +288,7 @@ i[class*='van-type-'] {
 }
 
 .van-detail-container {
-    padding: 27px;
+    padding-inline: 27px;
 }
 
 .van-detail-container .back-button {
@@ -315,6 +342,7 @@ i[class*='van-type-'] {
 
 .host-nav {
     display: flex;
+    margin-bottom: 30px;
 }
 
 .host-nav a {
@@ -445,4 +473,60 @@ i[class*='van-type-'] {
 .host-van-detail-image {
     height: 100px;
     border-radius: 5px;
+}
+
+.not-found-container {
+    padding-inline: 26px;
+}
+
+.not-found-container .link-button {
+    width: 100%;
+    background-color: #161616;
+    color: white;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 27px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;    
+}
+
+.login-form > input {
+    border: 1px solid rgba(209, 213, 219);
+    height: 40px;
+    text-indent: 10px;
+    font-family: "Inter", sans-serif;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 400;
+}
+
+.login-form > input:focus {
+    outline: none;
+}
+
+.login-form > input:first-of-type {
+    border-radius: 6px 6px 0px 0px;
+}
+
+.login-form > input:last-of-type {
+    border-radius: 0px 0px 6px 6px;
+    border-top: none;
+}
+
+.login-form > button {
+    background-color: #FF8C38;
+    border: none;
+    border-radius: 6px;
+    height: 55px;
+    margin-top: 22px;
+    color: white;
+    font-family: "Inter", sans-serif;
 }
