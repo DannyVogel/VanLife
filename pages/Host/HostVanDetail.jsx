@@ -1,9 +1,13 @@
 import React from "react"
-import { useParams, Link, NavLink, Outlet } from "react-router-dom"
+import { useParams, Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
+import { getHostVans } from "../../api"
+
+export function loader({ params }) {
+    return getHostVans(params.id)
+}
 
 export default function HostVanDetail() {
-    const { id } = useParams()
-    const [currentVan, setCurrentVan] = React.useState(null)
+    const currentVan = useLoaderData()
 
     const activeStyles = {
         fontWeight: "bold",
@@ -11,15 +15,6 @@ export default function HostVanDetail() {
         color: "#161616"
     }
 
-    React.useEffect(() => {
-        fetch(`/api/host/vans/${id}`)
-            .then(res => res.json())
-            .then(data => setCurrentVan(data.vans))
-    }, [])
-
-    if (!currentVan) {
-        return <h1>Loading...</h1>
-    }
     return (
         <section>
             <Link
@@ -68,12 +63,3 @@ export default function HostVanDetail() {
         </section>
     )
 }
-
-/**
- * Challenge: check out the docs linked in the slide, and see if you
- * can implement the Outlet Context feature it talks about.
- * 
- * Part of this challenge will require you to (finally) build out those
- * nested components. Again, if you don't need CSS practice, you can
- * skip the styling part, and I'll handle that for you.
- */
