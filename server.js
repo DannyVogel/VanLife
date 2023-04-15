@@ -21,8 +21,8 @@ createServer({
         this.timing = 2000
 
         this.get("/vans", (schema, request) => {
-            const num = Math.floor(Math.random() * 5)
-            if (num === 0){
+            const num = Math.floor((Math.random() * 5) + 1)
+            if (num === 1){
                 return new Response(400, {}, {error: "Error fetching data (note: this occurs randoly for testing purposes)"})
             } else {
                 return schema.vans.all()
