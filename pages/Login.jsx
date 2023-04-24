@@ -63,6 +63,7 @@ export default function Login() {
                     }
                 </button>
             </Form>
+            <p>Shh...try b@b.com and p123</p>
         </div>
     )
 }
